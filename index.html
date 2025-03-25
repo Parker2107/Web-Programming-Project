@@ -12,7 +12,7 @@
 		<header id="blah">
 			<div class="header-left">
 				<a class="logo" href="index.html">
-					<span class="firstl">F</span><span style="color: skyblue">a</span><span style="color: hotpink">k</span><span style="color: yellow">e</span><span class="firstl">S</span
+					<span class="firstletter">F</span><span style="color: skyblue">a</span><span style="color: hotpink">k</span><span style="color: yellow">e</span><span class="firstletter">S</span
 					><span style="color: lightgreen">t</span><span style="color: skyblue">o</span><span style="color: hotpink">r</span><span id="lastname">e</span>
 				</a>
 				<div class="search-container">
@@ -70,6 +70,12 @@
 		<script>
 			let slideIndex = 1;
 			showSlides(slideIndex);
+			document.addEventListener("DOMContentLoaded", () => {
+				setInterval(() => {
+					showSlides(slideIndex);
+					plusSlides(1);
+				}, 5000);
+			});
 
 			function plusSlides(n) {
 				showSlides((slideIndex += n));
@@ -99,5 +105,8 @@
 				dots[slideIndex - 1].className += " active";
 			}
 		</script>
+		<section id="products-container">
+			<!--JS will add elements here-->
+		</section>
 	</body>
 </html>
