@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FakeStore</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<script src="script.js"></script>
+
+		<header id="blah">
+			<div class="header-left">
+				<a class="logo" href="index.html">
+					<span class="firstl">F</span><span style="color: skyblue">a</span><span style="color: hotpink">k</span><span style="color: yellow">e</span><span class="firstl">S</span
+					><span style="color: lightgreen">t</span><span style="color: skyblue">o</span><span style="color: hotpink">r</span><span id="lastname">e</span>
+				</a>
+				<div class="search-container">
+					<input type="text" id="searchbar" placeholder="Search products..." />
+					<button class="searchbutton" onclick="searchProducts()">Search</button>
+				</div>
+			</div>
+			<div class="header-images">
+				<a href="account.html">
+					<img src="account.jpg" alt="account page" />
+				</a>
+				<a href="cart.html">
+					<img src="cart.jpg" alt="cart page" />
+				</a>
+				<a></a>
+			</div>
+		</header>
+		<br />
+		<div class="slideshow-container">
+			<div class="mySlides fade">
+				<div class="numbertext">1 / 4</div>
+				<img src="https://img.freepik.com/free-vector/electronics-store-template-design_23-2151143831.jpg" />
+				<div class="text">Electronics</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">2 / 4</div>
+				<img src="https://i.pinimg.com/originals/05/e0/7a/05e07a75023dcd2c5356bf0fa2fe8140.jpg" />
+				<div class="text">Jewelry</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">3 / 4</div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCLCS1wwuz2QZBuNc4H69rZzt3qem95PEE3w&s" />
+				<div class="text">Men's Clothing</div>
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">4 / 4</div>
+				<img src="https://www.shutterstock.com/image-photo/brunette-asian-woman-red-fashionable-260nw-2235546605.jpg" />
+				<div class="text">Women's Clothing</div>
+			</div>
+
+			<a class="prev" onclick="plusSlides(-1)">❮</a>
+			<a class="next" onclick="plusSlides(1)">❯</a>
+		</div>
+		<br />
+		<div style="text-align: center">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+			<span class="dot" onclick="currentSlide(4)"></span>
+		</div>
+
+		<script>
+			let slideIndex = 1;
+			showSlides(slideIndex);
+
+			function plusSlides(n) {
+				showSlides((slideIndex += n));
+			}
+
+			function currentSlide(n) {
+				showSlides((slideIndex = n));
+			}
+
+			function showSlides(n) {
+				let i;
+				let slides = document.getElementsByClassName("mySlides");
+				let dots = document.getElementsByClassName("dot");
+				if (n > slides.length) {
+					slideIndex = 1;
+				}
+				if (n < 1) {
+					slideIndex = slides.length;
+				}
+				for (i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";
+				}
+				for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" active", "");
+				}
+				slides[slideIndex - 1].style.display = "block";
+				dots[slideIndex - 1].className += " active";
+			}
+		</script>
+	</body>
+</html>
