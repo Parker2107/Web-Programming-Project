@@ -41,7 +41,7 @@
 		<div class="slide-container">
 			<div class="mySlides fade">
 				<div class="numbertext">1 / 4</div>
-				<img src="https://img.freepik.com/free-vector/electronics-store-template-design_23-2151143831.jpg" />
+				<img src="https://c8.alamy.com/comp/2PHMT5M/online-electronics-shopping-and-delivery-banner-with-devices-and-shopping-basket-2PHMT5M.jpg" />
 				<div class="text">Electronics</div>
 			</div>
 
@@ -53,13 +53,13 @@
 
 			<div class="mySlides fade">
 				<div class="numbertext">3 / 4</div>
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCLCS1wwuz2QZBuNc4H69rZzt3qem95PEE3w&s" />
+				<img src="https://fashionclinik.com/wp-content/themes/yootheme/cache/96/MENS-WARE-B1-banner-ac9a13b7-96670013.webp" />
 				<div class="text">Men's Clothing</div>
 			</div>
 
 			<div class="mySlides fade">
 				<div class="numbertext">4 / 4</div>
-				<img src="https://www.shutterstock.com/image-photo/brunette-asian-woman-red-fashionable-260nw-2235546605.jpg" />
+				<img src="https://images.template.net/108413/women-fashion-banner-template-2jvn9.jpg" />
 				<div class="text">Women's Clothing</div>
 			</div>
 
@@ -74,41 +74,39 @@
 			<span class="dot" onclick="currentSlide(4)"></span>
 		</div>
 		<script>
-			let slideIndex = 2;
-			showSlides(slideIndex);
+			let slideIndex = 0;
+			let slides, dots;
+
 			document.addEventListener("DOMContentLoaded", () => {
-				setInterval(() => {
-					showSlides(slideIndex);
-					plusSlides(1);
-				}, 5000);
+				slides = document.getElementsByClassName("mySlides");
+				dots = document.getElementsByClassName("dot");
+
+				showSlides(slideIndex); // Show the first slide initially
+				setInterval(() => plusSlides(1), 5000); // Auto-slide every 5s
 			});
 
-			function plusSlides(n) {
-				showSlides((slideIndex += n));
-			}
-
-			function currentSlide(n) {
-				showSlides((slideIndex = n));
-			}
-
+			// Function to show a slide with fade effect
 			function showSlides(n) {
-				let i;
-				let slides = document.getElementsByClassName("mySlides");
-				let dots = document.getElementsByClassName("dot");
-				if (n > slides.length) {
-					slideIndex = 1;
-				}
-				if (n < 1) {
-					slideIndex = slides.length;
-				}
-				for (i = 0; i < slides.length; i++) {
-					slides[i].style.display = "none";
-				}
-				for (i = 0; i < dots.length; i++) {
-					dots[i].className = dots[i].className.replace(" active", "");
-				}
-				slides[slideIndex - 1].style.display = "block";
-				dots[slideIndex - 1].className += " active";
+				let prevIndex = slideIndex;
+				slideIndex = (n + slides.length) % slides.length; // Ensure cycling through slides
+
+				// Remove active class from old slide
+				slides[prevIndex].classList.remove("active-slide");
+				dots[prevIndex].classList.remove("active");
+
+				// Add active class to new slide
+				slides[slideIndex].classList.add("active-slide");
+				dots[slideIndex].classList.add("active");
+			}
+
+			// Function for next & previous navigation
+			function plusSlides(n) {
+				showSlides(slideIndex + n);
+			}
+
+			// Function for dot navigation
+			function currentSlide(n) {
+				showSlides(n - 1);
 			}
 		</script>
 		<section id="products-container">
