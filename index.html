@@ -16,9 +16,16 @@
 					><span style="color: lightgreen">t</span><span style="color: skyblue">o</span><span style="color: hotpink">r</span><span id="lastname">e</span>
 				</a>
 				<div class="search-container">
-					<input type="text" id="searchbar" placeholder="Search products..." />
+					<input type="text" id="searchbar" placeholder="Search products..." onsubmit="searchProducts()" />
 					<button class="searchbutton" onclick="searchProducts()">Search</button>
 				</div>
+				<script>
+					document.getElementById("searchbar").addEventListener("keydown", (event) => {
+						if (event.key === "Enter") {
+							searchProducts();
+						}
+					});
+				</script>
 			</div>
 			<div class="header-images">
 				<a href="account.html">

@@ -315,6 +315,90 @@ body {
 	padding: 20px;
 }
 
+.search-results {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px;
+}
+
+.search-results h2 {
+	color: #ffffff;
+}
+
+.search-prod-container {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.search-card {
+	display: flex;
+	align-items: center;
+	background-color: #f3f3f3;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 15px;
+	transition: background-color 0.3s ease;
+}
+
+.search-card:hover {
+	background-color: #e5e5e5;
+}
+
+.search-card img {
+	width: 120px; /* Ensuring uniform width */
+	height: 120px; /* Ensuring uniform height */
+	object-fit: contain;
+	border-radius: 10px;
+	border: 2px solid #ddd;
+	background-color: #ffffff; /* Stays white even on hover */
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	margin-right: 20px;
+}
+
+.search-result-desc {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.search-result-desc h3 {
+	font-size: 18px;
+	color: #333;
+	margin-bottom: 5px;
+}
+
+.search-result-desc p {
+	font-size: 14px;
+	color: #777;
+}
+
+.search-card-price {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 10px;
+}
+
+.search-card-price p {
+	font-size: 16px;
+	color: #333;
+	font-weight: bold;
+}
+
+.details-button {
+	padding: 8px 12px;
+	font-size: 0.9rem;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 body.dark-mode {
 	background-color: #121212;
 	color: #ffffff;
