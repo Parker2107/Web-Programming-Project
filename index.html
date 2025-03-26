@@ -31,7 +31,7 @@
 			</div>
 		</header>
 		<br />
-		<div class="slideshow-container">
+		<div class="slide-container">
 			<div class="mySlides fade">
 				<div class="numbertext">1 / 4</div>
 				<img src="https://img.freepik.com/free-vector/electronics-store-template-design_23-2151143831.jpg" />
@@ -41,7 +41,7 @@
 			<div class="mySlides fade">
 				<div class="numbertext">2 / 4</div>
 				<img src="https://i.pinimg.com/originals/05/e0/7a/05e07a75023dcd2c5356bf0fa2fe8140.jpg" />
-				<div class="text">Jewelry</div>
+				<div class="text">Jewelery</div>
 			</div>
 
 			<div class="mySlides fade">
@@ -59,23 +59,22 @@
 			<a class="prev" onclick="plusSlides(-1)">❮</a>
 			<a class="next" onclick="plusSlides(1)">❯</a>
 		</div>
-		<br />
+
 		<div style="text-align: center">
 			<span class="dot" onclick="currentSlide(1)"></span>
 			<span class="dot" onclick="currentSlide(2)"></span>
 			<span class="dot" onclick="currentSlide(3)"></span>
 			<span class="dot" onclick="currentSlide(4)"></span>
 		</div>
-
 		<script>
-			let slideIndex = 1;
+			let slideIndex = 2;
 			showSlides(slideIndex);
-			/*document.addEventListener("DOMContentLoaded", () => {
+			document.addEventListener("DOMContentLoaded", () => {
 				setInterval(() => {
 					showSlides(slideIndex);
 					plusSlides(1);
 				}, 5000);
-			});*/
+			});
 
 			function plusSlides(n) {
 				showSlides((slideIndex += n));

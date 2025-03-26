@@ -15,7 +15,7 @@ img {
 }
 
 #blah {
-	background-color: #333;
+	background-color: rgb(32, 32, 30);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -102,10 +102,19 @@ img {
 	border-radius: 50%;
 }
 
-.slideshow-container {
-	max-width: 1000px;
+.slide-container {
+	width: 80vw;
+	fill: contain;
 	position: relative;
 	margin: auto;
+	padding-bottom: 10px;
+}
+
+.slide-container img {
+	width: 80vw;
+	height: 500px;
+	object-fit: fill;
+	border-radius: 20px;
 }
 
 .numbertext {
@@ -164,7 +173,7 @@ img {
 	font-size: 25px;
 	padding: 8px 12px;
 	position: absolute;
-	bottom: 8px;
+	bottom: 15px;
 	width: 100%;
 	text-align: center;
 }
@@ -185,7 +194,8 @@ img {
 
 body {
 	font-family: Arial, sans-serif;
-	background-color: #ffffff;
+	background: url("background.jpg") no-repeat center center fixed;
+	background-size: cover;
 	color: #333;
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -204,7 +214,7 @@ body {
 
 .category-section h2 {
 	font-size: 1.5rem;
-	color: #333;
+	color: #ffffff;
 	margin-bottom: 10px;
 }
 
@@ -221,6 +231,7 @@ body {
 
 .product-card {
 	border: 1px solid #ddd;
+	background-color: #f3f3f3;
 	border-radius: 5px;
 	padding: 10px;
 	text-align: center;
@@ -238,11 +249,12 @@ body {
 }
 
 .product-card:hover {
-	background-color: #f0f0f5;
+	background-color: #e5e5e5;
 }
 
 .product-card img {
 	width: 100%;
+	background-color: #ffffff;
 	max-height: 150px;
 	object-fit: contain;
 	border-radius: 10px;
@@ -258,7 +270,7 @@ body {
 }
 
 .product-card h3 {
-	font-size: 1rem;
+	font-size: 16px;
 	color: #333;
 	margin: 10px 0 5px 0;
 	overflow: hidden;
@@ -267,9 +279,17 @@ body {
 }
 
 .product-card p {
-	font-size: 0.9rem;
+	font-size: 14px;
 	color: #777;
 	margin: 0;
+}
+
+.product-card-price {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	justify-content: center;
+	align-items: baseline;
 }
 
 .details-button {

@@ -35,14 +35,14 @@ function displayProducts(category, products) {
 		const productCard = document.createElement("div");
 		productCard.className = "product-card";
 		const productId = product.id;
-
+		var price = product.price.toFixed(2);
 		productCard.innerHTML = `
-            <img class="productimg" src="${product.image}" alt="${product.title}">
+            <img src="${product.image}" alt="${product.title}">
             <h3>${product.title}</h3>
-            <p>$${product.price}</p>
-            <button class="details-button" onclick="fetchDetails(${productId})">View Details</button>
-            <br>
-            <p class="description" id="desc-${productId}" style="display: none;"></p> <!-- Description container -->
+            <div class="product-card-price">
+            <p>Price => $${price}</p>
+            <button class="details-button" onclick="fetchDetails(${productId})">Add to Cart</button>
+            </div>
         `;
 
 		categoryProductsContainer.appendChild(productCard);
@@ -50,4 +50,9 @@ function displayProducts(category, products) {
 
 	categorySection.appendChild(categoryProductsContainer);
 	container.appendChild(categorySection);
+}
+
+function searchProducts() {
+	const search = document.getElementById("searchbar").value.toLowerCase();
+	//TODO
 }
