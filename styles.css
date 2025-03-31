@@ -219,6 +219,7 @@ img {
 body {
 	font-family: Arial, sans-serif;
 	background: url("background.jpg") no-repeat center center fixed;
+	background-repeat: repeat-y;
 	background-size: cover;
 	color: #333;
 	transition: background-color 0.3s ease, color 0.3s ease;
@@ -421,28 +422,6 @@ body {
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-}
-
-body.dark-mode {
-	background-color: #121212;
-	color: #ffffff;
-}
-
-#dark-mode-toggle {
-	position: fixed;
-	bottom: 10px;
-	left: 10px;
-	padding: 8px 12px;
-	background-color: #2e2f31;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-}
-
-#dark-mode-toggle:hover {
-	background-color: #0056b3;
 }
 
 .productimg {

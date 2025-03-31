@@ -41,25 +41,29 @@
 		<div class="slide-container">
 			<div class="mySlides fade">
 				<div class="numbertext">1 / 4</div>
-				<img src="https://c8.alamy.com/comp/2PHMT5M/online-electronics-shopping-and-delivery-banner-with-devices-and-shopping-basket-2PHMT5M.jpg" />
+				<!-- <img src="https://c8.alamy.com/comp/2PHMT5M/online-electronics-shopping-and-delivery-banner-with-devices-and-shopping-basket-2PHMT5M.jpg" />-->
+				<img src="demo electronics.jpg" />
 				<div class="text">Electronics</div>
 			</div>
 
 			<div class="mySlides fade">
 				<div class="numbertext">2 / 4</div>
-				<img src="https://i.pinimg.com/originals/05/e0/7a/05e07a75023dcd2c5356bf0fa2fe8140.jpg" />
+				<!-- <img src="https://i.pinimg.com/originals/05/e0/7a/05e07a75023dcd2c5356bf0fa2fe8140.jpg" /> -->
+				<img src="demo jewelery.jpg" />
 				<div class="text">Jewelery</div>
 			</div>
 
 			<div class="mySlides fade">
 				<div class="numbertext">3 / 4</div>
-				<img src="https://fashionclinik.com/wp-content/themes/yootheme/cache/96/MENS-WARE-B1-banner-ac9a13b7-96670013.webp" />
+				<!-- <img src="https://fashionclinik.com/wp-content/themes/yootheme/cache/96/MENS-WARE-B1-banner-ac9a13b7-96670013.webp" /> -->
+				<img src="demo men's clothing.webp" />
 				<div class="text">Men's Clothing</div>
 			</div>
 
 			<div class="mySlides fade">
 				<div class="numbertext">4 / 4</div>
-				<img src="https://images.template.net/108413/women-fashion-banner-template-2jvn9.jpg" />
+				<!-- <img src="https://images.template.net/108413/women-fashion-banner-template-2jvn9.jpg" /> -->
+				<img src="demo women's clothing.jpg" />
 				<div class="text">Women's Clothing</div>
 			</div>
 
@@ -81,30 +85,25 @@
 				slides = document.getElementsByClassName("mySlides");
 				dots = document.getElementsByClassName("dot");
 
-				showSlides(slideIndex); // Show the first slide initially
-				setInterval(() => plusSlides(1), 5000); // Auto-slide every 5s
+				showSlides(slideIndex);
+				setInterval(() => plusSlides(1), 5000);
 			});
 
-			// Function to show a slide with fade effect
 			function showSlides(n) {
 				let prevIndex = slideIndex;
-				slideIndex = (n + slides.length) % slides.length; // Ensure cycling through slides
+				slideIndex = (n + slides.length) % slides.length;
 
-				// Remove active class from old slide
 				slides[prevIndex].classList.remove("active-slide");
 				dots[prevIndex].classList.remove("active");
 
-				// Add active class to new slide
 				slides[slideIndex].classList.add("active-slide");
 				dots[slideIndex].classList.add("active");
 			}
 
-			// Function for next & previous navigation
 			function plusSlides(n) {
 				showSlides(slideIndex + n);
 			}
 
-			// Function for dot navigation
 			function currentSlide(n) {
 				showSlides(n - 1);
 			}
@@ -112,5 +111,8 @@
 		<section id="products-container">
 			<!--JS will add elements here-->
 		</section>
+		<button id="darkmode">
+			<!--The text will be generated from JS-->
+		</button>
 	</body>
 </html>

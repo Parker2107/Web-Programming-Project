@@ -1,8 +1,60 @@
 const API = "https://fakestoreapi.com/";
+demoProducts = [
+	{
+		id: 1,
+		title: "Fjallraven - Foldsack No. 1 Backpack",
+		price: 109.95,
+		category: "men's clothing",
+		description: "Your perfect pack for everyday use...",
+		image: "bag.jpg",
+	},
+	{
+		id: 2,
+		title: "Mens Casual Premium Slim Fit T-Shirts",
+		price: 22.3,
+		category: "men's clothing",
+		description: "Slim-fitting style, contrast raglan long sleeve...",
+		image: "bag.jpg",
+	},
+	{
+		id: 3,
+		title: "SanDisk SSD PLUS 1TB Internal SSD",
+		price: 109.99,
+		category: "electronics",
+		description: "Easy upgrade for faster boot up, shutdown, application load...",
+		image: "bag.jpg",
+	},
+	{
+		id: 4,
+		title: "Samsung Monitor Good one",
+		price: 1099.95,
+		category: "electronics",
+		description: "Your perfect monitor that you will never use to it's capabilities",
+		image: "bag.jpg",
+	},
+];
+
+demoUsers = {
+	id: 1,
+	email: "johndoe@example.com",
+	username: "johndoe92",
+	password: "securepassword",
+	name: {
+		firstname: "John",
+		lastname: "Doe",
+	},
+	address: {
+		street: "123 Main St",
+		city: "New York",
+		zipcode: "10001",
+	},
+	phone: "123-456-7890",
+};
 
 document.addEventListener("DOMContentLoaded", () => {
 	loadCategories();
 	fetchProducts();
+	console.log(fetchProducts());
 });
 
 let productList = [];
@@ -10,9 +62,9 @@ let productList = [];
 async function fetchProducts() {
 	const url = API + "products/";
 	try {
-		const response = await fetch(url);
-		productList = await response.json();
-		return productList;
+		//const response = await fetch(url);
+		//productList = await response.json();
+		return demoProducts; //productList;
 	} catch (error) {
 		console.error("Error fetching products:", error);
 		return [];
@@ -25,9 +77,9 @@ function loadCategories() {
 }
 
 async function fetchCategories(category) {
-	let url = API + "products/category/" + category;
-	const response = await fetch(url);
-	const products = await response.json();
+	//let url = API + "products/category/" + category;
+	//const response = await fetch(url);
+	const products = demoProducts; //await response.json();
 	console.log(category + "\n");
 	console.log(products);
 	displayProducts(category, products);
