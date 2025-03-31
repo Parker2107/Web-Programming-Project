@@ -175,7 +175,6 @@ function displaySearchResults(products) {
             <button class="details-button" onclick="addToCart(${productId})">Add to Cart</button>
             </div>
         `;
-
 			searchProdsContainer.appendChild(searchCard);
 		});
 	}

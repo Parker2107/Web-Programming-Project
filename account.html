@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Account Details</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<style>
+			body {
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				background-color: #1e1e1e;
+				color: #e0e0e0;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				transition: background-color 0.3s, color 0.3s;
+			}
+
+			body.lightmode {
+				background-color: #f4f4f4;
+				color: #333;
+			}
+
+			.container {
+				background: #2a2a2a;
+				padding: 40px;
+				border-radius: 12px;
+				box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+				text-align: left;
+				width: 100%;
+				max-width: 700px;
+				min-width: 320px;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				transition: background 0.3s;
+			}
+
+			body.lightmode .container {
+				background: #fff;
+			}
+
+			h2 {
+				text-decoration: underline;
+				font-size: 30px;
+				margin-bottom: 25px;
+				color: #fff;
+				text-align: center;
+				font-family: "Roboto", sans-serif;
+			}
+
+			body.lightmode h2 {
+				color: #333;
+			}
+
+			p {
+				font-size: 18px;
+				margin: 12px 0;
+				color: #e0e0e0;
+			}
+
+			body.lightmode p {
+				color: #333;
+			}
+
+			strong {
+				font-weight: bold;
+				color: #fff;
+				transition: 0.3 ease-in-out;
+			}
+
+			body.lightmode strong {
+				color: #333;
+			}
+
+			#fullname,
+			#username,
+			#email,
+			#password,
+			#phone,
+			#address {
+				font-size: 22px;
+				color: #fff;
+				word-wrap: break-word;
+				line-height: 1.8;
+				font-family: "Roboto", sans-serif;
+			}
+
+			body.lightmode #fullname,
+			body.lightmode #username,
+			body.lightmode #email,
+			body.lightmode #password,
+			body.lightmode #phone,
+			body.lightmode #address {
+				color: #333;
+			}
+
+			#error-message {
+				font-size: 16px;
+				color: #ff4d4d;
+				text-align: center;
+				margin-top: 15px;
+			}
+
+			.container p {
+				margin-bottom: 12px;
+			}
+
+			input,
+			textarea {
+				padding: 10px;
+				border-radius: 5px;
+				font-size: 16px;
+				border: 1px solid #555;
+				background: #333;
+				color: #e0e0e0;
+				transition: background-color 0.3s, color 0.3s;
+			}
+
+			body.lightmode input,
+			body.lightmode textarea {
+				background: #fff;
+				color: #333;
+				border: 1px solid #ccc;
+			}
+
+			body.lightmode input:focus,
+			body.lightmode textarea:focus {
+				border-color: #007bff;
+			}
+		</style>
+		<div class="container">
+			<h2>Your Account Details</h2>
+			<p><strong>Full Name:</strong> <span id="fullname">Loading...</span></p>
+			<p><strong>Username:</strong> <span id="username">Loading...</span></p>
+			<p><strong>Email:</strong> <span id="email">Loading...</span></p>
+			<p><strong>Password:</strong> <span id="password">Loading...</span></p>
+			<p><strong>Phone:</strong> <span id="phone">Loading...</span></p>
+			<p><strong>Address:</strong> <span id="address">Loading...</span></p>
+			<p id="error-message" style="color: red"></p>
+		</div>
+		<script src="script.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", async function () {
+				try {
+					const response = await fetch("https://fakestoreapi.com/users/2");
+					if (!response.ok) throw new Error("Failed to fetch user data");
+
+					const user = await response.json();
+					if (!user || !user.name) throw new Error("Invalid user data");
+
+					document.getElementById("fullname").textContent = `${user.name.firstname || "N/A"} ${user.name.lastname || "N/A"}`;
+					document.getElementById("username").textContent = user.username || "N/A";
+					document.getElementById("email").textContent = user.email || "N/A";
+					document.getElementById("password").textContent = user.password || "N/A";
+					document.getElementById("phone").textContent = user.phone || "N/A";
+					document.getElementById("address").textContent = `${user.address.number}, ${user.address.street}, ${user.address.city}, ${user.address.zipcode}`;
+				} catch (error) {
+					document.getElementById("error-message").textContent = "Error retrieving user details. Please try again.";
+					console.error("Error:", error);
+				}
+			});
+		</script>
+		<button id="dark-mode-toggle">
+			<!--The text will be generated from JS-->
+		</button>
+	</body>
+</html>

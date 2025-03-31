@@ -1,119 +1,169 @@
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>FakeStore</title>
+		<title>Register</title>
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
+		<style>
+			/* General Styles */
+			body {
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				background-color: #1e1e1e;
+				color: #e0e0e0;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				transition: background-color 0.3s, color 0.3s;
+			}
+
+			/* Light Mode Styles */
+			body.lightmode {
+				background-color: #f4f4f4;
+				color: #333;
+			}
+
+			/* Container */
+			.container {
+				background: #2a2a2a;
+				padding: 40px;
+				border-radius: 12px;
+				box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+				text-align: left;
+				width: 100%;
+				max-width: 700px;
+				min-width: 320px;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				transition: background 0.3s;
+			}
+
+			form {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+
+			/* Light Mode Container */
+			body.lightmode .container {
+				background: #fff;
+			}
+
+			/* Header */
+			h2 {
+				font-size: 30px;
+				margin-bottom: 25px;
+				color: #fff;
+				text-align: center;
+				font-family: "Roboto", sans-serif;
+			}
+
+			/* Light Mode Header */
+			body.lightmode h2 {
+				color: #333;
+			}
+
+			/* Form Input Fields */
+			input,
+			textarea {
+				padding: 10px;
+				border-radius: 5px;
+				font-size: 16px;
+				border: 1px solid #555;
+				background: #333;
+				color: #e0e0e0;
+				transition: background-color 0.3s, color 0.3s;
+			}
+
+			body.lightmode input,
+			body.lightmode textarea {
+				background: #fff;
+				color: #333;
+				border: 1px solid #ccc;
+			}
+
+			body.lightmode input:focus,
+			body.lightmode textarea:focus {
+				border-color: #007bff;
+			}
+
+			/* Form Labels */
+			label {
+				font-size: 18px;
+				margin-bottom: 8px;
+				color: #e0e0e0;
+			}
+
+			/* Light Mode Form Labels */
+			body.lightmode label {
+				color: #333;
+			}
+
+			/* Submit Button */
+			#form-submit {
+				padding: 10px;
+				background-color: #007bff;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-size: 18px;
+				transition: background-color 0.3s;
+			}
+
+			#form-submit:hover {
+				background-color: #0056b3;
+			}
+
+			/* Error Message */
+			#error-message {
+				font-size: 16px;
+				color: #ff4d4d;
+				text-align: center;
+				margin-top: 15px;
+			}
+
+			/* Spacing & Alignment */
+			.container p {
+				margin-bottom: 12px;
+			}
+		</style>
+		<div class="container">
+			<h2>Register</h2>
+			<form id="register-form">
+				<input type="text" id="firstname" placeholder="First Name" required />
+				<input type="text" id="lastname" placeholder="Last Name" required />
+				<input type="text" id="username" placeholder="Username" required />
+				<input type="email" id="email" placeholder="Email" required />
+				<input type="password" id="password" placeholder="Password" required />
+				<input type="text" id="phone" placeholder="Phone Number" required />
+				<input type="text" id="city" placeholder="City" required />
+				<input type="text" id="street" placeholder="Street" required />
+				<input type="number" id="number" placeholder="House Number" required />
+				<br />
+				<button id="form-submit" type="submit">Register</button>
+			</form>
+			<p id="message"></p>
+		</div>
+
 		<script src="script.js"></script>
-
-		<header id="blah">
-			<div class="header-left">
-				<a class="logo" href="index.html">
-					<span class="firstletter">F</span><span style="color: skyblue">a</span><span style="color: hotpink">k</span><span style="color: yellow">e</span><span class="firstletter">S</span
-					><span style="color: lightgreen">t</span><span style="color: skyblue">o</span><span style="color: hotpink">r</span><span id="lastname">e</span>
-				</a>
-				<div class="search-container">
-					<input type="text" id="searchbar" placeholder="Search products..." onsubmit="searchProducts()" />
-					<button class="searchbutton" onclick="searchProducts()">Search</button>
-				</div>
-				<script>
-					document.getElementById("searchbar").addEventListener("keydown", (event) => {
-						if (event.key === "Enter") {
-							searchProducts();
-						}
-					});
-				</script>
-			</div>
-			<div class="header-images">
-				<a href="account.html">
-					<img src="account.jpg" alt="account page" />
-				</a>
-				<a href="cart.html">
-					<img src="cart.jpg" alt="cart page" />
-				</a>
-			</div>
-		</header>
-		<br />
-		<br />
-		<div class="slide-container">
-			<div class="mySlides fade">
-				<div class="numbertext">1 / 4</div>
-				<!-- <img src="https://c8.alamy.com/comp/2PHMT5M/online-electronics-shopping-and-delivery-banner-with-devices-and-shopping-basket-2PHMT5M.jpg" />-->
-				<img src="demo electronics.jpg" />
-				<div class="text">Electronics</div>
-			</div>
-
-			<div class="mySlides fade">
-				<div class="numbertext">2 / 4</div>
-				<!-- <img src="https://i.pinimg.com/originals/05/e0/7a/05e07a75023dcd2c5356bf0fa2fe8140.jpg" /> -->
-				<img src="demo jewelery.jpg" />
-				<div class="text">Jewelery</div>
-			</div>
-
-			<div class="mySlides fade">
-				<div class="numbertext">3 / 4</div>
-				<!-- <img src="https://fashionclinik.com/wp-content/themes/yootheme/cache/96/MENS-WARE-B1-banner-ac9a13b7-96670013.webp" /> -->
-				<img src="demo men's clothing.webp" />
-				<div class="text">Men's Clothing</div>
-			</div>
-
-			<div class="mySlides fade">
-				<div class="numbertext">4 / 4</div>
-				<!-- <img src="https://images.template.net/108413/women-fashion-banner-template-2jvn9.jpg" /> -->
-				<img src="demo women's clothing.jpg" />
-				<div class="text">Women's Clothing</div>
-			</div>
-
-			<a class="prev" onclick="plusSlides(-1)">❮</a>
-			<a class="next" onclick="plusSlides(1)">❯</a>
-		</div>
-
-		<div style="text-align: center">
-			<span class="dot" onclick="currentSlide(1)"></span>
-			<span class="dot" onclick="currentSlide(2)"></span>
-			<span class="dot" onclick="currentSlide(3)"></span>
-			<span class="dot" onclick="currentSlide(4)"></span>
-		</div>
 		<script>
-			let slideIndex = 0;
-			let slides, dots;
-
-			document.addEventListener("DOMContentLoaded", () => {
-				slides = document.getElementsByClassName("mySlides");
-				dots = document.getElementsByClassName("dot");
-
-				showSlides(slideIndex);
-				setInterval(() => plusSlides(1), 5000);
+			document.getElementById("register-form").addEventListener("submit", function (event) {
+				event.preventDefault();
+				document.getElementById("message").textContent = "Registration successful! Redirecting...";
+				setTimeout(() => {
+					window.location.href = "main_menu.html";
+				}, 2000);
 			});
-
-			function showSlides(n) {
-				let prevIndex = slideIndex;
-				slideIndex = (n + slides.length) % slides.length;
-
-				slides[prevIndex].classList.remove("active-slide");
-				dots[prevIndex].classList.remove("active");
-
-				slides[slideIndex].classList.add("active-slide");
-				dots[slideIndex].classList.add("active");
-			}
-
-			function plusSlides(n) {
-				showSlides(slideIndex + n);
-			}
-
-			function currentSlide(n) {
-				showSlides(n - 1);
-			}
 		</script>
-		<section id="products-container">
-			<!--JS will add elements here-->
-		</section>
-		<div>
-			<button id="dark-mode-toggle">
-				<!--The text will be generated from JS-->
-			</button>
-		</div>
+		<button id="dark-mode-toggle">
+			<!--The text will be generated from JS-->
+		</button>
 	</body>
 </html>
