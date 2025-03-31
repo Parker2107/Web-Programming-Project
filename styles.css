@@ -219,10 +219,15 @@ img {
 body {
 	font-family: Arial, sans-serif;
 	background: url("background.jpg") no-repeat center center fixed;
-	background-repeat: repeat-y;
+	background-size: cover;
+	color: #e0e0e0;
+	transition: background 0.5s ease, color 0.3s ease;
+}
+
+body.lightmode {
+	background: url("background1.png") no-repeat center center fixed;
 	background-size: cover;
 	color: #333;
-	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #products-container {
@@ -428,38 +433,41 @@ body {
 	object-fit: cover;
 }
 
-.account-container {
-	max-width: 600px;
-	margin: 50px auto;
-	padding: 20px;
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	background-color: #f9f9f9;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	font-family: Arial, sans-serif;
-	text-align: center;
-}
-
-.account-container h1 {
-	font-size: 2rem;
-	margin-bottom: 20px;
-	color: #333;
-}
-
-#user-info {
-	text-align: left;
-}
-
-.user-details {
-	margin: 10px 0;
-}
-
-.user-details label {
+#dark-mode-toggle {
+	position: fixed;
+	right: 15px;
+	bottom: 20px;
+	height: 40px;
+	width: 120px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
 	font-weight: bold;
-	color: #555;
+	font-size: 14px;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.user-details p {
-	margin: 5px 0;
-	color: #333;
+/* Light Mode Button (When Dark Mode is Off) */
+#dark-mode-toggle.light {
+	background-color: white;
+	color: black;
+	border: 2px solid black;
+}
+
+#dark-mode-toggle.light:hover {
+	background-color: #f0f0f0;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode Button (When Dark Mode is On) */
+#dark-mode-toggle.dark {
+	background-color: #2e2f31;
+	color: white;
+	border: 2px solid white;
+}
+
+#dark-mode-toggle.dark:hover {
+	background-color: #3a3b3d;
+	box-shadow: 0 6px 8px rgba(255, 255, 255, 0.15);
 }

@@ -1,4 +1,5 @@
 const API = "https://fakestoreapi.com/";
+var button;
 demoProducts = [
 	{
 		id: 1,
@@ -54,7 +55,8 @@ demoUsers = {
 document.addEventListener("DOMContentLoaded", () => {
 	loadCategories();
 	fetchProducts();
-	console.log(fetchProducts());
+	initDarkMode();
+	button.addEventListener("click", toggleDarkMode);
 });
 
 let productList = [];
@@ -62,9 +64,9 @@ let productList = [];
 async function fetchProducts() {
 	const url = API + "products/";
 	try {
-		//const response = await fetch(url);
-		//productList = await response.json();
-		return demoProducts; //productList;
+		const response = await fetch(url);
+		productList = await response.json();
+		return productList;
 	} catch (error) {
 		console.error("Error fetching products:", error);
 		return [];
@@ -77,9 +79,9 @@ function loadCategories() {
 }
 
 async function fetchCategories(category) {
-	//let url = API + "products/category/" + category;
-	//const response = await fetch(url);
-	const products = demoProducts; //await response.json();
+	let url = API + "products/category/" + category;
+	const response = await fetch(url);
+	const products = await response.json();
 	console.log(category + "\n");
 	console.log(products);
 	displayProducts(category, products);
@@ -179,4 +181,29 @@ function displaySearchResults(products) {
 	}
 	searchResults.appendChild(searchProdsContainer);
 	container.appendChild(searchResults);
+}
+
+function initDarkMode() {
+	button = document.getElementById("dark-mode-toggle");
+	if (!button) {
+		console.error("Button with ID 'dark-mode-toggle' not found.");
+		return;
+	}
+	button.innerText = "Light Mode";
+	button.classList.remove("light");
+	button.classList.add("dark");
+}
+
+function toggleDarkMode() {
+	document.body.classList.toggle("lightmode");
+
+	if (document.body.classList.contains("lightmode")) {
+		button.innerText = "Dark Mode";
+		button.classList.remove("dark");
+		button.classList.add("light");
+	} else {
+		button.innerText = "Light Mode";
+		button.classList.remove("light");
+		button.classList.add("dark");
+	}
 }
