@@ -578,3 +578,30 @@ body.lightmode .search-card-price p {
 	background-color: #3a3b3d;
 	box-shadow: 0 6px 8px rgba(255, 255, 255, 0.15);
 }
+
+.redirect {
+	background-color: #222; /* Dark background */
+	color: #fff; /* Light text */
+	border: 2px solid #444; /* Subtle border */
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.redirect:hover {
+	background-color: #333;
+	border-color: #666;
+}
+
+body.lightmode .redirect {
+	background-color: #f0f0f0; /* Light background */
+	color: #222; /* Dark text */
+	border-color: #ccc;
+}
+
+body.lightmode .redirect:hover {
+	background-color: #ddd;
+	border-color: #999;
+}

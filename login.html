@@ -18,6 +18,7 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				height: 100vh;
 				transition: background-color 0.3s, color 0.3s;
 			}
 
@@ -119,6 +120,7 @@
 			#form-submit:hover {
 				background-color: #0056b3;
 			}
+
 			#message {
 				display: none;
 			}
@@ -136,30 +138,21 @@
 			}
 		</style>
 		<div class="container">
-			<h2>Welcome!</h2>
-			<form id="register-form">
+			<h2>Welcome Back!</h2>
+			<form id="login-form">
 				<input type="text" id="firstname" placeholder="Registration Number" required />
-				<input type="text" id="lastname" placeholder="Full Name" required />
 				<input type="text" id="username" placeholder="Username" required />
-				<input type="email" id="email" placeholder="Email" required />
-				<input type="password" id="password" placeholder="Create Password" required />
-				<input type="text" id="phone" placeholder="Phone Number" required />
-				<input type="text" id="city" placeholder="City" required />
-				<input type="text" id="street" placeholder="Street" required />
-				<input type="number" id="number" placeholder="House Number" required />
+				<input type="password" id="password" placeholder="Password" required />
 				<br />
-				<button id="form-submit" type="submit">Register</button>
+				<button id="form-submit" type="submit">Login</button>
 			</form>
 			<p id="message"></p>
-			<span>
-				<a href="login.html"><button class="redirect">Login</button></a>
-				<a href="main_menu.html"><button class="redirect">Guest Login</button></a>
-			</span>
+			<a href="index.html"><button class="redirect">Register User</button></a>
 		</div>
 
 		<script src="script.js"></script>
 		<script>
-			document.getElementById("register-form").addEventListener("submit", function (event) {
+			document.getElementById("login-form").addEventListener("submit", function (event) {
 				/*const response = await fetch("ieeebackend.vercel.app", {
 					method: "POST",
 					headers: {
@@ -170,11 +163,22 @@
 				})*/
 
 				event.preventDefault();
-				document.getElementById("message").style.display = "block";
-				document.getElementById("message").textContent = "Registration successful! Redirecting...";
-				setTimeout(() => {
-					window.location.href = "login.html";
-				}, 2000);
+				let x = document.getElementById("username").value;
+				let y = document.getElementById("password").value;
+
+				if (x != "Parker" || y != "Jeevesh") {
+					document.getElementById("message").style.display = "block";
+					document.getElementById("message").textContent = "Login failed. Incorrect Username or Password. Please try again";
+					setTimeout(() => {
+						document.getElementById("message").innerHTML = "";
+					}, 5000);
+				} else {
+					document.getElementById("message").style.display = "block";
+					document.getElementById("message").textContent = "Login successful! Redirecting...";
+					setTimeout(() => {
+						window.location.href = "main_menu.html";
+					}, 2000);
+				}
 			});
 		</script>
 		<button id="dark-mode-toggle">
