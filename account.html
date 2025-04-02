@@ -37,7 +37,7 @@
 				min-width: 320px;
 				display: flex;
 				flex-direction: column;
-				gap: 20px;
+				gap: 15px;
 				transition: background 0.3s;
 			}
 
@@ -60,7 +60,6 @@
 
 			p {
 				font-size: 18px;
-				margin: 12px 0;
 				color: #e0e0e0;
 			}
 
@@ -142,7 +141,6 @@
 			<p><strong>Password:</strong> <span id="password">Loading...</span></p>
 			<p><strong>Phone:</strong> <span id="phone">Loading...</span></p>
 			<p><strong>Address:</strong> <span id="address">Loading...</span></p>
-			<p id="error-message" style="color: red"></p>
 			<a href="login.html"><button class="redirect">Logout</button></a>
 		</div>
 		<script src="script.js"></script>
@@ -162,7 +160,6 @@
 					document.getElementById("phone").textContent = user.phone || "N/A";
 					document.getElementById("address").textContent = `${user.address.number}, ${user.address.street}, ${user.address.city}, ${user.address.zipcode}`;
 				} catch (error) {
-					document.getElementById("error-message").textContent = "Error retrieving user details. Please try again.";
 					console.error("Error:", error);
 				}
 			});
