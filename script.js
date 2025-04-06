@@ -121,7 +121,7 @@ function displayProducts(category, products) {
 
 async function searchProducts() {
 	const search = document.getElementById("searchbar").value.toLowerCase();
-	const allProd = document.querySelectorAll(".category-section"); // Selecting all products
+	const allProd = document.querySelectorAll(".category-section");
 	let matchingProds = [];
 	allProd.forEach((prod) => {
 		prod.style.display = "none";
@@ -203,4 +203,8 @@ function toggleDarkMode() {
 		button.classList.remove("light");
 		button.classList.add("dark");
 	}
+}
+
+function addToCart(id) {
+	window.alert("Item added to cart");
 }

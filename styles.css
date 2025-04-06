@@ -24,7 +24,7 @@ header .home {
 	border: 2px solid #333;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
 	background-color: white;
-	padding: 6px;
+	padding: 8px;
 }
 
 #blah {
@@ -295,6 +295,7 @@ body.lightmode {
 }
 
 .category-section h2 {
+	width: fit-content;
 	font-size: 1.75rem;
 	font-weight: 700;
 	margin-bottom: 15px;
@@ -304,6 +305,9 @@ body.lightmode {
 }
 
 body.lightmode .category-section h2 {
+	background-color: #f3f3f3;
+	border-radius: 5px;
+	padding: 10px;
 	color: #000000;
 	text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
 }
@@ -648,4 +652,27 @@ body.lightmode .buy-button {
 
 body.lightmode .buy-button:hover {
 	background-color: #e2e2e2;
+}
+
+.cart-total {
+	margin: 20px auto auto 0;
+	padding: 16px 24px;
+	border-radius: 12px;
+	width: fit-content;
+	text-align: center;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #fff;
+	transition: 0.3s ease;
+}
+
+body.lightmode .cart-total {
+	color: #333;
+}
+
+body.lightmode .cart-total p {
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
 }

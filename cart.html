@@ -36,7 +36,7 @@
 				const [error, setError] = useState(null);
 				const [products, setProducts] = useState([]);
 				const [showBuyButton, setBuyButton] = useState(false);
-
+				const [total, setTotal] = useState(0);
 				// Fetch cart data
 				useEffect(() => {
 					const fetchCart = async () => {
@@ -58,17 +58,23 @@
 
 						setProducts([]); // clear previous list
 						const productList = cart.products;
-
+						var tempsum = 0;
 						for (let item of productList) {
 							try {
 								const response = await fetch(API + "products/" + item.productId);
 								const product = await response.json();
 
-								setProducts((prev) => [...prev, product]);
+								setProducts((prev) => {
+									const updated = [...prev, product];
+									tempsum += product.price;
+									return updated;
+								});
 							} catch (err) {
 								setError(err.message);
 							}
 						}
+						console.log(tempsum);
+						setTotal(tempsum);
 					};
 
 					fetchProducts();
@@ -103,7 +109,7 @@
 											<button
 												className="details-button"
 												onClick={() => {
-													window.location.href = "buy.html";
+													window.alert("Lol, it's a FakeStore bruh");
 												}}
 											>
 												Buy Now
@@ -114,19 +120,23 @@
 							})}
 						</div>
 						{showBuyButton && (
-							<button
-								className="buy-button"
-								onClick={() => {
-									window.location.href = "buy.html";
-								}}
-							>
-								Buy Now
-							</button>
+							<div>
+								<div className="cart-total">
+									<p>Total Value: ${total}</p>
+									<button
+										className="buy-button"
+										onClick={() => {
+											window.alert("Lol, it's a FakeStore bruh");
+										}}
+									>
+										Buy Now
+									</button>
+								</div>
+							</div>
 						)}
 					</div>
 				);
 			};
-
 			ReactDOM.render(<App />, document.getElementById("root"));
 		</script>
 		<div>
