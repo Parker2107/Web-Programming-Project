@@ -4,6 +4,22 @@
 	box-sizing: border-box;
 }
 
+body {
+	font-family: Arial, sans-serif;
+	background: url("background.jpg") no-repeat center center fixed;
+	background-size: cover;
+	color: #e0e0e0;
+	background-color: rgb(32, 32, 30);
+	transition: background 0.5s ease, color 0.3s ease;
+}
+
+body.lightmode {
+	background: url("background1.png") no-repeat center center fixed;
+	background-size: cover;
+	color: #333;
+	background-color: rgb(216, 226, 252);
+}
+
 header h1 {
 	margin: 0;
 }
@@ -265,20 +281,6 @@ body.lightmode .header-images img {
 	bottom: 15px;
 	width: 100%;
 	text-align: center;
-}
-
-body {
-	font-family: Arial, sans-serif;
-	background: url("background.jpg") no-repeat center center fixed;
-	background-size: cover;
-	color: #e0e0e0;
-	transition: background 0.5s ease, color 0.3s ease;
-}
-
-body.lightmode {
-	background: url("background1.png") no-repeat center center fixed;
-	background-size: cover;
-	color: #333;
 }
 
 #products-container {
