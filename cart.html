@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>React App</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script src="script.js"></script>
+		<script type="text/babel">
+			const { useState, useEffect } = React;
+
+			const App = () => {
+				const API = "https://fakestoreapi.com/";
+				const [cart, setCart] = useState(null);
+				const [error, setError] = useState(null);
+				const [products, setProducts] = useState([]);
+
+				// Fetch cart data
+				useEffect(() => {
+					const fetchCart = async () => {
+						try {
+							const response = await fetch(API + "carts/2");
+							const data = await response.json();
+							setCart(data);
+						} catch (err) {
+							setError(err.message);
+						}
+					};
+
+					fetchCart();
+				}, []);
+
+				useEffect(() => {
+					const fetchProducts = async () => {
+						if (!cart) return;
+
+						setProducts([]); // clear previous list
+						const productList = cart.products;
+
+						for (let item of productList) {
+							try {
+								const response = await fetch(API + "products/" + item.productId);
+								const product = await response.json();
+
+								setProducts((prev) => [...prev, product]);
+							} catch (err) {
+								setError(err.message);
+							}
+						}
+					};
+
+					fetchProducts();
+				}, [cart]);
+
+				if (error) return <p style={{ color: "red" }}>{error}</p>;
+
+				return (
+					<div className="search-results">
+						<h2>Your Cart</h2>
+						<div className="search-prod-container">
+							{products.map((product) => {
+								const price = product.price.toFixed(2);
+								return (
+									<div className="search-card" key={product.id}>
+										<img src={product.image} alt={product.title} />
+										<div className="search-result-desc">
+											<h3>{product.title}</h3>
+											<p>{product.description}</p>
+										</div>
+										<div className="search-card-price">
+											<p>
+												Price ={">"} ${price}
+											</p>
+											<button
+												className="details-button"
+												onClick={() => {
+													window.location.href = "buy.html";
+												}}
+											>
+												Buy Now
+											</button>
+										</div>
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				);
+			};
+
+			ReactDOM.render(<App />, document.getElementById("root"));
+		</script>
+		<div>
+			<button id="dark-mode-toggle">
+				<!--The text will be generated from JS-->
+			</button>
+		</div>
+	</body>
+</html>

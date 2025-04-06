@@ -87,6 +87,8 @@
 
 				showSlides(slideIndex);
 				setInterval(() => plusSlides(1), 5000);
+				loadCategories();
+				fetchProducts();
 			});
 
 			function showSlides(n) {

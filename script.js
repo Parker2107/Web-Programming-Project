@@ -53,8 +53,6 @@ demoUsers = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-	loadCategories();
-	fetchProducts();
 	initDarkMode();
 	button.addEventListener("click", toggleDarkMode);
 });
