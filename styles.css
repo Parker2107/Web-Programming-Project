@@ -14,6 +14,17 @@ header img {
 	width: 100%;
 	border: 2px solid #333;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+	background-color: white;
+}
+
+header .home {
+	border-radius: 10px;
+	vertical-align: middle;
+	width: 100%;
+	border: 2px solid #333;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+	background-color: white;
+	padding: 6px;
 }
 
 #blah {
@@ -608,4 +619,33 @@ body.lightmode .redirect {
 body.lightmode .redirect:hover {
 	background-color: #ddd;
 	border-color: #999;
+}
+
+.buy-button {
+	padding: 1rem 2rem;
+	font-size: 1.2rem;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	background-color: #1f1f1f;
+	color: white;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+	margin: 2rem auto 1.5rem 0;
+	display: block;
+}
+
+.buy-button:hover {
+	background-color: #333;
+	transform: scale(1.03);
+}
+
+body.lightmode .buy-button {
+	background-color: #f0f0f0;
+	color: #111;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.lightmode .buy-button:hover {
+	background-color: #e2e2e2;
 }

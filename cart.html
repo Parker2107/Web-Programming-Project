@@ -8,6 +8,23 @@
 		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 	</head>
 	<body>
+		<header id="blah">
+			<div class="header-left">
+				<a class="logo" href="cart.html">
+					<span class="firstletter">Y</span><span style="color: skyblue">o</span><span style="color: hotpink">u</span><span style="color: yellow">r</span>
+					&nbsp;
+					<span class="firstletter">C</span><span style="color: lightgreen">a</span><span style="color: skyblue">r</span><span id="lastname">t</span>
+				</a>
+			</div>
+			<div class="header-images">
+				<a href="main_menu.html">
+					<img class="home" src="home.png" alt="home page" />
+				</a>
+				<a href="account.html">
+					<img src="account.jpg" alt="account page" />
+				</a>
+			</div>
+		</header>
 		<div id="root"></div>
 		<script src="script.js"></script>
 		<script type="text/babel">
@@ -18,6 +35,7 @@
 				const [cart, setCart] = useState(null);
 				const [error, setError] = useState(null);
 				const [products, setProducts] = useState([]);
+				const [showBuyButton, setBuyButton] = useState(false);
 
 				// Fetch cart data
 				useEffect(() => {
@@ -56,11 +74,18 @@
 					fetchProducts();
 				}, [cart]);
 
+				useEffect(() => {
+					if (cart && products.length === cart.products.length) {
+						const timer = setTimeout(() => {
+							setBuyButton(true);
+						}, 200);
+					}
+				}, [products, cart]);
+
 				if (error) return <p style={{ color: "red" }}>{error}</p>;
 
 				return (
 					<div className="search-results">
-						<h2>Your Cart</h2>
 						<div className="search-prod-container">
 							{products.map((product) => {
 								const price = product.price.toFixed(2);
@@ -88,6 +113,16 @@
 								);
 							})}
 						</div>
+						{showBuyButton && (
+							<button
+								className="buy-button"
+								onClick={() => {
+									window.location.href = "buy.html";
+								}}
+							>
+								Buy Now
+							</button>
+						)}
 					</div>
 				);
 			};

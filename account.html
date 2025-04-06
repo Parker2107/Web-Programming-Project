@@ -7,23 +7,36 @@
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
+		<header id="blah">
+			<div class="header-left">
+				<a class="logo" href="account.html">
+					<span class="firstletter">Y</span><span style="color: skyblue">o</span><span style="color: hotpink">u</span><span style="color: yellow">r</span>
+					&nbsp;
+					<span class="firstletter">A</span><span style="color: skyblue">c</span><span style="color: hotpink">c</span><span style="color: yellow">o</span
+					><span style="color: lightgreen">u</span><span style="color: tomato">n</span><span id="lastname">t</span>
+				</a>
+			</div>
+			<div class="header-images">
+				<a href="cart.html">
+					<img src="cart.jpg" alt="account page" />
+				</a>
+				<a href="main_menu.html">
+					<img class="home" src="home.png" alt="home page" />
+				</a>
+			</div>
+		</header>
 		<style>
 			body {
 				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-				background-color: #1e1e1e;
-				color: #e0e0e0;
 				margin: 0;
 				padding: 0;
+				transition: background-color 0.3s, color 0.3s;
+			}
+			.main-content {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				height: 100vh;
-				transition: background-color 0.3s, color 0.3s;
-			}
-
-			body.lightmode {
-				background-color: #f4f4f4;
-				color: #333;
+				padding-top: 1.5rem;
 			}
 
 			.container {
@@ -133,16 +146,18 @@
 				border-color: #007bff;
 			}
 		</style>
-		<div class="container">
-			<h2>Your Account Details</h2>
-			<p><strong>Full Name:</strong> <span id="fullname">Loading...</span></p>
-			<p><strong>Username:</strong> <span id="username">Loading...</span></p>
-			<p><strong>Email:</strong> <span id="email">Loading...</span></p>
-			<p><strong>Password:</strong> <span id="password">Loading...</span></p>
-			<p><strong>Phone:</strong> <span id="phone">Loading...</span></p>
-			<p><strong>Address:</strong> <span id="address">Loading...</span></p>
-			<a href="login.html"><button class="redirect">Logout</button></a>
-		</div>
+		<section class="main-content">
+			<div class="container">
+				<h2>Your Account Details</h2>
+				<p><strong>Full Name:</strong> <span id="fullname">Loading...</span></p>
+				<p><strong>Username:</strong> <span id="username">Loading...</span></p>
+				<p><strong>Email:</strong> <span id="email">Loading...</span></p>
+				<p><strong>Password:</strong> <span id="password">Loading...</span></p>
+				<p><strong>Phone:</strong> <span id="phone">Loading...</span></p>
+				<p><strong>Address:</strong> <span id="address">Loading...</span></p>
+				<a href="login.html"><button class="redirect">Logout</button></a>
+			</div>
+		</section>
 		<script src="script.js"></script>
 		<script>
 			document.addEventListener("DOMContentLoaded", async function () {
