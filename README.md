@@ -1,7 +1,10 @@
 # Web Programming Project
 
-## TODO
+## Team Members:
+Jeevesh Malhotra - 23BKT0048
 
-3. Cart adding and editing redo using ReactJS
+## External APIs Used:
+FakeStore: "https://fakestoreapi.com/"
 
-5. Buy Now button page
+## Takeaways:
+Enjoyed the project. Thanks.
